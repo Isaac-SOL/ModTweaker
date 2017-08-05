@@ -1,5 +1,6 @@
 package com.blamejared.compat.botania.handlers;
 
+import com.blamejared.api.annotations.Handler;
 import minetweaker.MineTweakerAPI;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
@@ -18,6 +19,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @ZenClass("mods.botania.PureDaisy")
+@Handler("botania")
 public class PureDaisy {
     
     public static final String name = "Botania PureDaisy";
@@ -56,6 +58,11 @@ public class PureDaisy {
         protected String getRecipeInfo(RecipePureDaisy recipe) {
             return LogHelper.getStackDescription(new ItemStack(recipe.getOutputState().getBlock(), 1));
         }
+
+        @Override
+        public String getJEICategory(RecipePureDaisy recipe) {
+            return "botania.pureDaisy";
+        }
     }
     
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -87,6 +94,11 @@ public class PureDaisy {
         @Override
         protected String getRecipeInfo(RecipePureDaisy recipe) {
             return LogHelper.getStackDescription(new ItemStack(recipe.getOutputState().getBlock(), 1));
+        }
+
+        @Override
+        public String getJEICategory(RecipePureDaisy recipe) {
+            return "botania.pureDaisy";
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.blamejared.compat.botania.handlers;
 
+import com.blamejared.api.annotations.Handler;
 import minetweaker.IUndoableAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.api.oredict.IOreDictEntry;
@@ -8,6 +9,7 @@ import stanhebben.zenscript.annotations.ZenMethod;
 import vazkii.botania.api.BotaniaAPI;
 
 @ZenClass("mods.botania.Orechid")
+@Handler("botania")
 public class Orechid {
     @ZenMethod
     public static void addOre(IOreDictEntry oreDict, int weight) {

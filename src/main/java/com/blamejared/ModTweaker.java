@@ -3,6 +3,7 @@ package com.blamejared;
 import com.blamejared.api.annotations.*;
 import com.blamejared.brackets.MaterialBracketHandler;
 import com.blamejared.brackets.PotionBracketHandler;
+import com.blamejared.compat.botania.commands.BotaniaLogger;
 import com.blamejared.compat.tconstruct.TConstructHelper;
 import com.blamejared.compat.tconstruct.commands.TConstructLogger;
 import minetweaker.MineTweakerAPI;
@@ -98,5 +99,12 @@ public class ModTweaker {
         MineTweakerImplementationAPI.addMineTweakerCommand("tconstruct", new String[]{
                 "/minetweaker tconstruct [ casting | alloys | drying | modifiers | materials ]",
                 "    Lists all Tinker's Construct recipes from a specific category"}, new TConstructLogger());
+
+        MineTweakerImplementationAPI.addMineTweakerCommand("botania", new String[]{
+                "/minetweaker botania [ Apothecary | Brew | ElvenTrade | ManaInfusion | PureDaisy | RuneAltar ]",
+                "    Lists all Botania's recipes from a specific category"}, new BotaniaLogger());
+
+        MineTweakerImplementationAPI.addMineTweakerCommand("botania_orechid", new String[]{
+                "Shows a list for the Orechid's ore weights"}, new BotaniaLogger());
     }
 }

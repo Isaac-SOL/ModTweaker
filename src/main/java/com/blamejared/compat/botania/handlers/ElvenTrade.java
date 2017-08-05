@@ -1,5 +1,6 @@
 package com.blamejared.compat.botania.handlers;
 
+import com.blamejared.api.annotations.Handler;
 import com.blamejared.mtlib.helpers.*;
 import com.blamejared.mtlib.utils.BaseListAddition;
 import com.blamejared.mtlib.utils.BaseListRemoval;
@@ -21,9 +22,10 @@ import static com.blamejared.mtlib.helpers.InputHelper.toStacks;
 import static com.blamejared.mtlib.helpers.StackHelper.matches;
 
 @ZenClass("mods.botania.ElvenTrade")
+@Handler("botania")
 public class ElvenTrade {
     
-    protected static final String name = "Botania Eleven Trade";
+    protected static final String name = "Botania Elven Trade";
     
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
@@ -57,6 +59,11 @@ public class ElvenTrade {
         @Override
         public String getRecipeInfo(RecipeElvenTrade recipe) {
             return LogHelper.getStackDescription(recipe.getOutputs());
+        }
+
+        @Override
+        public String getJEICategory(RecipeElvenTrade recipe) {
+            return "botania.elvenTrade";
         }
     }
 
@@ -115,6 +122,11 @@ public class ElvenTrade {
         @Override
         public String getRecipeInfo(RecipeElvenTrade recipe) {
             return LogHelper.getStackDescription(recipe.getOutputs());
+        }
+
+        @Override
+        public String getJEICategory(RecipeElvenTrade recipe) {
+            return "botania.elvenTrade";
         }
     }
 }

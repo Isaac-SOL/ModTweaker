@@ -1,5 +1,6 @@
 package com.blamejared.compat.botania.handlers;
 
+import com.blamejared.api.annotations.Handler;
 import minetweaker.MineTweakerAPI;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
@@ -18,6 +19,7 @@ import static com.blamejared.mtlib.helpers.InputHelper.*;
 import static com.blamejared.mtlib.helpers.StackHelper.matches;
 
 @ZenClass("mods.botania.RuneAltar")
+@Handler("botania")
 public class RuneAltar {
 
     protected static final String name = "Botania Rune Altar";
@@ -39,6 +41,11 @@ public class RuneAltar {
         @Override
         public String getRecipeInfo(RecipeRuneAltar recipe) {
             return LogHelper.getStackDescription(recipe.getOutput());
+        }
+
+        @Override
+        public String getJEICategory(RecipeRuneAltar recipe) {
+            return "botania.runicAltar";
         }
     }
 
@@ -71,6 +78,11 @@ public class RuneAltar {
         @Override
         public String getRecipeInfo(RecipeRuneAltar recipe) {
             return LogHelper.getStackDescription(recipe.getOutput());
+        }
+
+        @Override
+        public String getJEICategory(RecipeRuneAltar recipe) {
+            return "botania.runicAltar";
         }
     }
 }

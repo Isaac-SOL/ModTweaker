@@ -1,5 +1,6 @@
 package com.blamejared.compat.botania.handlers;
 
+import com.blamejared.api.annotations.Handler;
 import minetweaker.MineTweakerAPI;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
@@ -21,6 +22,7 @@ import static com.blamejared.mtlib.helpers.InputHelper.*;
 import static com.blamejared.mtlib.helpers.StackHelper.matches;
 
 @ZenClass("mods.botania.Apothecary")
+@Handler("botania")
 public class Apothecary {
 
     protected static final String name = "Botania Petal";
@@ -46,6 +48,11 @@ public class Apothecary {
         @Override
         public String getRecipeInfo(RecipePetals recipe) {
             return LogHelper.getStackDescription(recipe.getOutput());
+        }
+
+        @Override
+        public String getJEICategory(RecipePetals recipe) {
+            return "botania.petals";
         }
     }
 
@@ -83,6 +90,11 @@ public class Apothecary {
         @Override
         public String getRecipeInfo(RecipePetals recipe) {
             return LogHelper.getStackDescription(recipe.getOutput());
+        }
+
+        @Override
+        public String getJEICategory(RecipePetals recipe) {
+            return "botania.petals";
         }
     }
 }

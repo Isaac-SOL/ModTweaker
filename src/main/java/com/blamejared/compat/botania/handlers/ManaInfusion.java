@@ -1,5 +1,6 @@
 package com.blamejared.compat.botania.handlers;
 
+import com.blamejared.api.annotations.Handler;
 import com.blamejared.mtlib.helpers.LogHelper;
 import com.blamejared.mtlib.utils.BaseListAddition;
 import com.blamejared.mtlib.utils.BaseListRemoval;
@@ -19,6 +20,7 @@ import static com.blamejared.mtlib.helpers.StackHelper.matches;
 
 
 @ZenClass("mods.botania.ManaInfusion")
+@Handler("botania")
 public class ManaInfusion {
     
     protected static final String name = "Botania Mana Infusion";
@@ -31,14 +33,14 @@ public class ManaInfusion {
     @ZenMethod
     public static void addAlchemy(IItemStack output, IIngredient input, int mana) {
         RecipeManaInfusion recipe = new RecipeManaInfusion(toStack(output), toObject(input), mana);
-        recipe.setAlchemy(true);
+        recipe.setCatalyst(RecipeManaInfusion.alchemyState);
         MineTweakerAPI.apply(new Add(recipe));
     }
 
     @ZenMethod
     public static void addConjuration(IItemStack output, IIngredient input, int mana) {
         RecipeManaInfusion recipe = new RecipeManaInfusion(toStack(output), toObject(input), mana);
-        recipe.setConjuration(true);
+        recipe.setCatalyst(RecipeManaInfusion.conjurationState);
         MineTweakerAPI.apply(new Add(recipe));
     }
 
@@ -51,6 +53,11 @@ public class ManaInfusion {
         @Override
         public String getRecipeInfo(RecipeManaInfusion recipe) {
             return LogHelper.getStackDescription(recipe.getOutput());
+        }
+
+        @Override
+        public String getJEICategory(RecipeManaInfusion recipe) {
+            return "botania.manaPool";
         }
     }
 
@@ -83,6 +90,11 @@ public class ManaInfusion {
         @Override
         public String getRecipeInfo(RecipeManaInfusion recipe) {
             return LogHelper.getStackDescription(recipe.getOutput());
+        }
+
+        @Override
+        public String getJEICategory(RecipeManaInfusion recipe) {
+            return "botania.manaPool";
         }
     }
 }

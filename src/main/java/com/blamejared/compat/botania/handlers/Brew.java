@@ -1,5 +1,6 @@
 package com.blamejared.compat.botania.handlers;
 
+import com.blamejared.api.annotations.Handler;
 import minetweaker.MineTweakerAPI;
 import minetweaker.api.item.IIngredient;
 import com.blamejared.mtlib.helpers.InputHelper;
@@ -17,7 +18,9 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+//TODO Hasn't been tested for 1.11.2
 @ZenClass("mods.botania.Brew")
+@Handler("botania")
 public class Brew {
     
     public static final String name = "Botania Brew";
@@ -50,7 +53,12 @@ public class Brew {
         @Override
         protected String getRecipeInfo(RecipeBrew recipe) {
             return recipe.getBrew().getKey();
-        }    
+        }
+
+        @Override
+        public String getJEICategory(RecipeBrew recipe) {
+            return "botania.brewery";
+        }
     }
     
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -83,6 +91,11 @@ public class Brew {
         @Override
         protected String getRecipeInfo(RecipeBrew recipe) {
             return recipe.getBrew().getKey();
+        }
+
+        @Override
+        public String getJEICategory(RecipeBrew recipe) {
+            return "botania.brewery";
         }
     }
 }
